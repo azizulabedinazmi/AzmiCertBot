@@ -1,11 +1,26 @@
-# AzmiCertBot
-## Telegram Bot for Generating PDF Certificates
+# AzmiCertBot 
+<img src="img/OIG4.png" width="100" height="100"/> 
 
-### 1. **Overview**
+## Telegram Bot for Generating PDF Certificates 📜🤖
+
+## License
+
+This software, tool, code, and materials are licensed under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**. You are free to share and adapt the material for any purpose, including commercial use, as long as appropriate credit is provided.
+
+Attribution must include the name **"Azizul Abedin Azmi"** or the logo found in this repository.
+
+[![View License](https://img.shields.io/badge/View-License-blue?style=for-the-badge)](LICENSE)
+
+
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+<img src="https://img.icons8.com/?size=100&id=hGdCwhSHUe6L&format=png&color=000000"/> 
+
+### 1. **Overview** 📝
 
 This Python script creates a Telegram bot that interacts with users, collects their details (Name and ID Number), and generates a PDF certificate based on a predefined template. The user inputs their data in a specific format, which is overlaid onto a PDF file. The completed PDF file is then sent back to the user through Telegram.
 
-### 2. **Code Breakdown and How It Works**
+### 2. **Code Breakdown and How It Works** 🛠️
 
 #### **Imports:**
 ```python
@@ -111,9 +126,9 @@ def main():
 - Initializes the bot with your unique bot token and sets up various handlers for commands and messages.
 - The bot uses polling to continuously check for new messages.
 
-### 3. **Installation and Setup Guide**
+### 3. **Installation and Setup Guide** 🛠️
 
-#### **Step 1: Install Dependencies**
+#### **Step 1: Install Dependencies** 📦
 
 - Ensure you have Python 3.8+ installed.
 - Install the required Python packages:
@@ -124,35 +139,35 @@ def main():
   - `python-telegram-bot`: Provides the Telegram bot API functionality.
   - `PyMuPDF (fitz)`: Handles PDF manipulation.
 
-#### **Step 2: Create the Telegram Bot**
+#### **Step 2: Create the Telegram Bot** 🤖
 
 1. Open Telegram and search for **BotFather**.
 2. Type `/start` and then `/newbot`.
 3. Follow the prompts to name your bot.
 4. BotFather will provide you with a unique bot token. Copy it and replace `Your_Token` in the script with your actual token.
 
-#### **Step 3: Prepare the Certificate Template**
+#### **Step 3: Prepare the Certificate Template** 📄
 
 - Create or design a PDF certificate template (`cert_template.pdf`) with placeholders for the name and ID.
 - Place the file in the same directory as your script.
 
-#### **Step 4: Adjust Coordinates**
+#### **Step 4: Adjust Coordinates** 📐
 
 - The `page.insert_text` function requires precise coordinates to place the text in the correct spots on the PDF. Adjust `(200, 220)` and `(240, 240)` in `create_cert_card()` to match the locations on your template where you want the `name` and `ID` to appear.
 
-#### **Step 5: Run the Script**
+#### **Step 5: Run the Script** ▶️
 
 Run the Python script:
 ```bash
 python telegram_cert_bot.py
 ```
 
-#### **Step 6: Test the Bot**
+#### **Step 6: Test the Bot** 🧪
 
 - Open your bot in Telegram and start interacting by sending the `/start` command.
 - Provide the requested details (Name, ID Number) to receive the generated certificate in PDF format.
 
-### 4. **Create a Virtual Machine (VM) on Azure** 
+### 4. **Create a Virtual Machine (VM) on Azure** ☁️
 
 1. **Login to Azure Portal**  
    Go to the [Azure Portal](https://portal.azure.com/) and log in to your account.
@@ -177,7 +192,7 @@ python telegram_cert_bot.py
 
 ---
 
-#### **Access Your VM via SSH**
+#### **Access Your VM via SSH** 🔑
 
 Once the VM is created, SSH into the VM from your local machine.
 
@@ -191,7 +206,7 @@ Once the VM is created, SSH into the VM from your local machine.
 
 ---
 
-#### **Install Python and Required Packages**
+#### **Install Python and Required Packages** 🐍
 
 Now that you're inside your Azure VM, you need to install Python, `python-telegram-bot`, and `PyMuPDF`.
 
@@ -210,13 +225,13 @@ Now that you're inside your Azure VM, you need to install Python, `python-telegr
 3. **Install Required Python Packages**  
    Install the `python-telegram-bot` and `PyMuPDF` (fitz) packages:
    ```bash
-   pip3 install python-telegram-bot==20.0a4
+   pip3 install python-telegram-bot
    pip3 install pymupdf
    ```
 
 ---
 
-#### **Upload Your Bot Files to the VM**
+#### **Upload Your Bot Files to the VM** 📂
 
 Use `scp` (secure copy protocol) or a file transfer tool like `rsync` to upload your bot files, including the PDF template and Python script, to the VM.
 
@@ -237,7 +252,7 @@ Use `scp` (secure copy protocol) or a file transfer tool like `rsync` to upload 
 
 ---
 
-#### **Edit Your Bot Script on the VM**
+#### **Edit Your Bot Script on the VM** 📝
 
 If you haven't already replaced the bot token in your script with the actual token from BotFather, you can do so on the VM.
 
@@ -250,7 +265,7 @@ If you haven't already replaced the bot token in your script with the actual tok
 
 ---
 
-#### **Test the Bot Locally on the VM**
+#### **Test the Bot Locally on the VM** 🧪
 
 Before setting up the bot as a service, it's a good idea to test it by running it manually.
 
@@ -268,7 +283,7 @@ If everything works, you’re ready to make the bot run continuously on your VM.
 
 ---
 
-#### **Configure the Bot to Run Continuously with systemd**
+#### **Configure the Bot to Run Continuously with systemd** 🔄
 
 To ensure the bot runs in the background even after you log out, you'll create a systemd service.
 
@@ -323,7 +338,7 @@ To ensure the bot runs in the background even after you log out, you'll create a
 
 ---
 
-#### **Monitor Logs and Maintain the Bot**
+#### **Monitor Logs and Maintain the Bot** 📋
 
 To monitor the bot’s logs, you can use the `journalctl` command. This will display the logs generated by the service:
 ```bash
@@ -333,7 +348,7 @@ sudo journalctl -u telegram-bot -f
 
 ---
 
-#### **Updating the Bot**
+#### **Updating the Bot** 🔄
 
 If you need to update your bot's code or add new features:
 1. Edit the `telegram_cert_bot.py` on the VM using a text editor like `nano`.
@@ -344,16 +359,23 @@ If you need to update your bot's code or add new features:
 
 ---
 
-#### **Final Notes**
+#### **Final Notes** 📝
 
 - **Security**: Make sure to properly secure your VM by disabling unused ports and services. Consider using **firewall rules** to restrict access to only the necessary services (SSH and HTTP).
 - **Backup**: Regularly back up your bot files and ensure the VM’s snapshot is updated, so you can restore the VM in case of issues.
 
 ---
 
-### 5. **Important Notes**
+### 5. **Important Notes** ⚠️
 
 - **Replace YOUR_TOKEN**: Make sure to replace `'Your_Token'` with the bot token you received from BotFather.
 - **PDF Template**: Ensure the `cert_template.pdf` file is designed properly and located in the same directory as your script.
 - **Text Coordinates**: Adjust the `(200, 220)` and `(240, 240)` coordinates in `create_cert_card()` to match the correct locations on your PDF template.
 
+<a href="https://www.buymeacoffee.com/azizulabedinazmi" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+**Need Help or Have Queries?**
+
+If you need any help or have any queries, feel free to contact me.
+
+[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)](https://www.facebook.com/azizul.abedin.azmi) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/azizulabedin/)

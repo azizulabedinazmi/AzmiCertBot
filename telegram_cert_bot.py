@@ -1,8 +1,8 @@
 import logging
 import webbrowser
-from telegram import Update, InputFile
-from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackContext
-import fitz  # PyMuPDF
+from telegram import Update, InputFile # type: ignore
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackContext # type: ignore
+import fitz  # type: ignore # PyMuPDF
 
 # Set up logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
