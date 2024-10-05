@@ -144,7 +144,7 @@ def main():
 
 Run the Python script:
 ```bash
-python bot_script.py
+python telegram_cert_bot.py
 ```
 
 #### **Step 6: Test the Bot**
@@ -222,11 +222,11 @@ Use `scp` (secure copy protocol) or a file transfer tool like `rsync` to upload 
 
 1. **From Your Local Machine**:
    ```bash
-   scp /path/to/your/bot_script.py your_username@your_vm_ip_address:/home/your_username/
+   scp /path/to/your/telegram_cert_bot.py your_username@your_vm_ip_address:/home/your_username/
    scp /path/to/cert_template.pdf your_username@your_vm_ip_address:/home/your_username/
    ```
 
-   Replace `/path/to/your/bot_script.py` and `/path/to/cert_template.pdf` with the actual paths to your bot script and PDF template. Ensure these are uploaded to your home directory on the VM.
+   Replace `/path/to/your/telegram_cert_bot.py` and `/path/to/cert_template.pdf` with the actual paths to your bot script and PDF template. Ensure these are uploaded to your home directory on the VM.
 
 2. **Check the Files**:  
    Once the files are uploaded, navigate to the directory in your VM to confirm:
@@ -243,7 +243,7 @@ If you haven't already replaced the bot token in your script with the actual tok
 
 1. **Edit the Python Script**:
    ```bash
-   nano bot_script.py
+   nano telegram_cert_bot.py
    ```
    - Replace the line `application = Application.builder().token("Your_Token").build()` with your actual Telegram bot token.
    - Press `CTRL + X`, then `Y`, and hit `Enter` to save and exit.
@@ -256,7 +256,7 @@ Before setting up the bot as a service, it's a good idea to test it by running i
 
 1. Run the Python script to start the bot:
    ```bash
-   python3 bot_script.py
+   python3 telegram_cert_bot.py
    ```
 
 2. **Interacting with the Bot**:
@@ -288,7 +288,7 @@ To ensure the bot runs in the background even after you log out, you'll create a
    [Service]
    User=your_username
    WorkingDirectory=/home/your_username/
-   ExecStart=/usr/bin/python3 /home/your_username/bot_script.py
+   ExecStart=/usr/bin/python3 /home/your_username/telegram_cert_bot.py
    Restart=always
 
    [Install]
@@ -336,7 +336,7 @@ sudo journalctl -u telegram-bot -f
 #### **Updating the Bot**
 
 If you need to update your bot's code or add new features:
-1. Edit the `bot_script.py` on the VM using a text editor like `nano`.
+1. Edit the `telegram_cert_bot.py` on the VM using a text editor like `nano`.
 2. After making changes, restart the service to apply the updates:
    ```bash
    sudo systemctl restart telegram-bot
